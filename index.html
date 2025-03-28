@@ -1,0 +1,83 @@
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miko Storybook Intro</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            overflow: hidden;
+            perspective: 1200px;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+        }
+
+        .page-turn {
+            position: absolute;
+            width: 80%;
+            height: 90%;
+            left: 10%;
+            top: 5%;
+            background: url('https://your-cdn.com/page-texture.jpg');
+            background-size: cover;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            transform-origin: left center;
+            animation: pageTurn 2.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        .logo {
+            position: absolute;
+            width: 200px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            opacity: 0;
+            animation: logoReveal 2s 1s ease-out forwards;
+        }
+
+        .intro-text {
+            position: absolute;
+            bottom: 15%;
+            width: 100%;
+            text-align: center;
+            color: #fff;
+            font-family: 'Roboto', sans-serif;
+            font-size: 2em;
+            opacity: 0;
+            animation: textFade 1.5s 2s ease-out forwards;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        @keyframes pageTurn {
+            0% { transform: rotateY(0deg) scaleX(1); }
+            40% { transform: rotateY(-160deg) scaleX(0.8); }
+            100% { transform: rotateY(-180deg) scaleX(1); }
+        }
+
+        @keyframes logoReveal {
+            0% { transform: translate(-50%, -50%) scale(3); opacity: 0; }
+            100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+        }
+
+        @keyframes textFade {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="page-turn"></div>
+        <img src="https://drive.google.com/file/d/13rFxhoa1e7PwlCnj67954N19a8JessCH/view?usp=sharing" class="logo" alt="Miko Logo">
+        <div class="intro-text">Your Story Begins...</div>
+    </div>
+</body>
+</html>
